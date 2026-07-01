@@ -1,0 +1,62 @@
+.woodenLabel {
+  background: linear-gradient(135deg, var(--cedar-brown-light), #C8AE9A);
+  border: 1px solid rgba(122, 91, 69, 0.5);
+  padding: 10px 28px 10px 14px;
+  border-radius: 4px 20px 20px 4px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  box-shadow: 
+    3px 4px 10px rgba(0, 0, 0, 0.08),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.4);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  overflow: hidden;
+}
+
+.woodenLabel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 3px,
+    rgba(255, 255, 255, 0.15) 3px,
+    rgba(255, 255, 255, 0.15) 5px
+  );
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.woodenLabel:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 
+    4px 8px 15px rgba(0, 0, 0, 0.12),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.5);
+  background: linear-gradient(135deg, #C8AE9A, var(--cedar-brown-light));
+}
+
+.hole {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--pine-black);
+  box-shadow: inset 2px 2px 4px rgba(0,0,0,0.6), 1px 1px 0px rgba(255,255,255,0.4);
+  position: relative;
+  z-index: 1;
+}
+
+.text {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  color: var(--pine-black);
+  letter-spacing: 0.05em;
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+  text-shadow: 1px 1px 0px rgba(255,255,255,0.3);
+}

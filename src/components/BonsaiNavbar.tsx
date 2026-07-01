@@ -1,0 +1,65 @@
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
+import { siteData } from '../config/siteData';
+import styles from './BonsaiNavbar.module.css';
+import WoodenLabelCTA from './WoodenLabelCTA';
+
+const BonsaiNavbar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
+  return (
+    <header className={styles.header}>
+      <div className={`container ${styles.navContainer}`}>
+        <Link to="/" className={styles.logoGroup} onClick={() => setIsOpen(false)}>
+          <div className={styles.vermilionStamp}>庵</div>
+          <div className={styles.logoText}>
+            <span className={styles.siteName}>{siteData.websiteName}</span>
+            <span className={styles.romanized}>{siteData.romanizedName}</span>
+          </div>
+        </Link>
+
+        {/* Desktop Nav */}
+        <nav className={styles.desktopNav}>
+          <ul className={styles.navLinks}>
+            {siteData.navigation.map((item, index) => (
+              <li key={index}>
+                <Link to={item.path} className={styles.navLink}>{item.label}</Link>
+              </li>
+            ))}
+          </ul>
+          <Link to="/guide">
+            <WoodenLabelCTA text="育て方を見る" />
+          </Link>
+        </nav>
+
+        {/* Mobile Nav Toggle */}
+        <button className={styles.mobileToggle} onClick={toggleMenu} aria-label="Toggle menu">
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
+        {/* Mobile Nav */}
+        <div className={`${styles.mobileNav} ${isOpen ? styles.open : ''}`}>
+          <ul className={styles.mobileNavLinks}>
+            {siteData.navigation.map((item, index) => (
+              <li key={index}>
+                <Link to={item.path} className={styles.mobileNavLink} onClick={() => setIsOpen(false)}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+            <li className={styles.mobileCtaWrapper}>
+              <Link to="/guide" onClick={() => setIsOpen(false)}>
+                <WoodenLabelCTA text="育て方を見る" />
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default BonsaiNavbar;

@@ -1,0 +1,177 @@
+.card {
+  background-color: var(--warm-ivory);
+  border: 1px solid rgba(156, 155, 150, 0.3);
+  border-left: 6px solid var(--moss-green);
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(156, 155, 150, 0.2);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+.cardContent {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card:hover {
+  transform: translateX(4px);
+  box-shadow: 5px 15px 35px rgba(0, 0, 0, 0.04);
+}
+
+.seasonHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.seasonNumber {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--soil-brown), var(--pine-black));
+  color: var(--warm-ivory);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.seasonTitle {
+  font-size: 26px;
+  color: var(--pine-black);
+  letter-spacing: 0.05em;
+}
+
+.tasksBox {
+  background-color: rgba(212, 211, 205, 0.2);
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid rgba(156, 155, 150, 0.2);
+}
+
+.tasksLabel {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  color: var(--stone-gray);
+  display: block;
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  font-size: 13px;
+  background-color: var(--moss-green);
+  color: var(--warm-ivory);
+  padding: 6px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 5px rgba(82, 103, 67, 0.2);
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .detailsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.detailItem {
+  padding: 16px;
+  border: 1px dashed rgba(156, 155, 150, 0.4);
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.detailHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: var(--moss-green-dark);
+}
+
+.detailHeader h4 {
+  font-size: 15px;
+  margin: 0;
+  color: inherit;
+  font-weight: 600;
+}
+
+.icon {
+  color: var(--moss-green);
+}
+
+.detailItem p {
+  font-size: 15px;
+  color: var(--pine-black);
+  line-height: 1.6;
+}
+
+.tipsBox {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(156, 155, 150, 0.3);
+}
+
+.tipItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--soil-brown);
+}
+
+.alertIcon {
+  color: var(--vermilion);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.eyeIcon {
+  color: var(--moss-green);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.tipItem p {
+  line-height: 1.6;
+}
