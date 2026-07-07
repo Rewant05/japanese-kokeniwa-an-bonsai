@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './CareCalendarCard.module.css';
 import { Droplets, Scissors, AlertCircle, Eye } from 'lucide-react';
+import { getOptimizedImage } from '../config/imageAssets';
 
 interface CareCalendarCardProps {
   season: string;
@@ -16,18 +17,22 @@ interface CareCalendarCardProps {
 const CareCalendarCard: React.FC<CareCalendarCardProps> = ({
   season, tasks, watering, pruning, caution, observation, index, imageUrl
 }) => {
+  const optimizedImage = imageUrl ? getOptimizedImage(imageUrl) : null;
+
   return (
     <div className={styles.card}>
-      {imageUrl && (
+      {optimizedImage && (
         <div className={styles.imageWrapper}>
           <img
-            src={imageUrl}
+            src={optimizedImage.src}
+            srcSet={optimizedImage.srcSet}
+            sizes={optimizedImage.sizes}
             alt={season}
             className={styles.image}
             loading="lazy"
             decoding="async"
-            width="1024"
-            height="1024"
+            width={optimizedImage.width}
+            height={optimizedImage.height}
           />
         </div>
       )}

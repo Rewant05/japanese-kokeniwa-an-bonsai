@@ -2,7 +2,6 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import BonsaiNavbar from './components/BonsaiNavbar';
-import Footer from './components/Footer';
 
 // Pages
 import Home from './pages/Home';
@@ -14,6 +13,7 @@ const Workshop = lazy(() => import('./pages/Workshop'));
 const Contact = lazy(() => import('./pages/Contact'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const Terms = lazy(() => import('./pages/Terms'));
+const Footer = lazy(() => import('./components/Footer'));
 
 const App: React.FC = () => {
   return (
@@ -35,7 +35,9 @@ const App: React.FC = () => {
             </Routes>
           </Suspense>
         </div>
-        <Footer />
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
       </div>
     </Router>
   );

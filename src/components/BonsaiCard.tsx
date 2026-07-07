@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './BonsaiCard.module.css';
 import { Leaf, Sun, Droplets, Sparkles } from 'lucide-react';
+import { getOptimizedImage } from '../config/imageAssets';
 
 interface BonsaiCardProps {
   name: string;
@@ -17,18 +18,22 @@ interface BonsaiCardProps {
 const BonsaiCard: React.FC<BonsaiCardProps> = ({
   name, type, difficulty, sunlight, watering, seasonalHighlight, beginnerTip, description, imageUrl
 }) => {
+  const optimizedImage = imageUrl ? getOptimizedImage(imageUrl) : null;
+
   return (
     <div className={styles.card}>
-      {imageUrl && (
+      {optimizedImage && (
         <div className={styles.imageWrapper}>
           <img
-            src={imageUrl}
+            src={optimizedImage.src}
+            srcSet={optimizedImage.srcSet}
+            sizes={optimizedImage.sizes}
             alt={name}
             className={styles.image}
             loading="lazy"
             decoding="async"
-            width="1024"
-            height="1024"
+            width={optimizedImage.width}
+            height={optimizedImage.height}
           />
         </div>
       )}

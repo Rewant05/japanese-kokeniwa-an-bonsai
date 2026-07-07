@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import { siteData } from '../config/siteData';
+import { siteSummary } from '../config/siteSummary';
 import styles from './BonsaiNavbar.module.css';
 import WoodenLabelCTA from './WoodenLabelCTA';
 
@@ -16,15 +16,15 @@ const BonsaiNavbar: React.FC = () => {
         <Link to="/" className={styles.logoGroup} onClick={() => setIsOpen(false)}>
           <div className={styles.vermilionStamp}>庵</div>
           <div className={styles.logoText}>
-            <span className={styles.siteName}>{siteData.websiteName}</span>
-            <span className={styles.romanized}>{siteData.romanizedName}</span>
+            <span className={styles.siteName}>{siteSummary.websiteName}</span>
+            <span className={styles.romanized}>{siteSummary.romanizedName}</span>
           </div>
         </Link>
 
         {/* Desktop Nav */}
         <nav className={styles.desktopNav}>
           <ul className={styles.navLinks}>
-            {siteData.navigation.map((item, index) => (
+            {siteSummary.navigation.map((item, index) => (
               <li key={index}>
                 <Link to={item.path} className={styles.navLink}>{item.label}</Link>
               </li>
@@ -43,7 +43,7 @@ const BonsaiNavbar: React.FC = () => {
         {/* Mobile Nav */}
         <div className={`${styles.mobileNav} ${isOpen ? styles.open : ''}`}>
           <ul className={styles.mobileNavLinks}>
-            {siteData.navigation.map((item, index) => (
+            {siteSummary.navigation.map((item, index) => (
               <li key={index}>
                 <Link to={item.path} className={styles.mobileNavLink} onClick={() => setIsOpen(false)}>
                   {item.label}

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './BonsaiDisplayHero.module.css';
 import WoodenLabelCTA from './WoodenLabelCTA';
-import { siteData } from '../config/siteData';
+import { siteSummary } from '../config/siteSummary';
 
 const BonsaiDisplayHero: React.FC = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -90,7 +90,7 @@ const BonsaiDisplayHero: React.FC = () => {
 
       <div className={styles.heroContent}>
         <h1 className={styles.headline}>「小さな庭を、毎日の手の中に。」</h1>
-        <p className={styles.subtext}>{siteData.description}</p>
+        <p className={styles.subtext}>{siteSummary.description}</p>
         
         <div className={styles.ctaGroup}>
           <Link to="/guide">
@@ -105,17 +105,17 @@ const BonsaiDisplayHero: React.FC = () => {
       {/* Seasonal care calendar strip */}
       <div className={styles.seasonalStrip}>
         <div className={styles.seasonalTrack}>
-          {siteData.careCalendar.map((item, idx) => (
+          {siteSummary.seasonalStrip.map((season, idx) => (
             <div key={idx} className={styles.seasonalItem}>
               <span className={styles.seasonMark}>〇</span>
-              {item.season}
+              {season}
             </div>
           ))}
           {/* Duplicate for infinite scroll illusion */}
-          {siteData.careCalendar.map((item, idx) => (
+          {siteSummary.seasonalStrip.map((season, idx) => (
             <div key={`dup-${idx}`} className={styles.seasonalItem}>
               <span className={styles.seasonMark}>〇</span>
-              {item.season}
+              {season}
             </div>
           ))}
         </div>

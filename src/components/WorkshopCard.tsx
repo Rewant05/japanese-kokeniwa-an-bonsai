@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './WorkshopCard.module.css';
 import { Clock, Users, Leaf } from 'lucide-react';
 import WoodenLabelCTA from './WoodenLabelCTA';
+import { getOptimizedImage } from '../config/imageAssets';
 
 interface WorkshopCardProps {
   title: string;
@@ -18,18 +19,22 @@ interface WorkshopCardProps {
 const WorkshopCard: React.FC<WorkshopCardProps> = ({
   title, duration, difficulty, audience, learn, bring, careNote, cta, imageUrl
 }) => {
+  const optimizedImage = imageUrl ? getOptimizedImage(imageUrl) : null;
+
   return (
     <div className={styles.card}>
-      {imageUrl && (
+      {optimizedImage && (
         <div className={styles.imageWrapper}>
           <img
-            src={imageUrl}
+            src={optimizedImage.src}
+            srcSet={optimizedImage.srcSet}
+            sizes={optimizedImage.sizes}
             alt={title}
             className={styles.image}
             loading="lazy"
             decoding="async"
-            width="1024"
-            height="1024"
+            width={optimizedImage.width}
+            height={optimizedImage.height}
           />
         </div>
       )}
