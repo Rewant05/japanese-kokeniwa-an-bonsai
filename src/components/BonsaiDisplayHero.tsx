@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import Link from './AppLink';
 import styles from './BonsaiDisplayHero.module.css';
 import WoodenLabelCTA from './WoodenLabelCTA';
 import { siteSummary } from '../config/siteSummary';

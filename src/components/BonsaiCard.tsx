@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './BonsaiCard.module.css';
-import { Leaf, Sun, Droplets, Sparkles } from 'lucide-react';
+import { Leaf, Sun, Droplets, Sparkles } from './icons';
 import { getOptimizedImage } from '../config/imageAssets';
 
 interface BonsaiCardProps {

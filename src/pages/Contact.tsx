@@ -1,7 +1,7 @@
 import React from 'react';
 import { siteData } from '../config/siteData';
 import ContactForm from '../components/ContactForm';
-import { Mail, MapPin, Clock } from 'lucide-react';
+import { Mail, MapPin, Clock } from '../components/icons';
 
 const Contact: React.FC = () => {
   return (

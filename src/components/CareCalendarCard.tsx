@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './CareCalendarCard.module.css';
-import { Droplets, Scissors, AlertCircle, Eye } from 'lucide-react';
+import { Droplets, Scissors, AlertCircle, Eye } from './icons';
 import { getOptimizedImage } from '../config/imageAssets';
 
 interface CareCalendarCardProps {

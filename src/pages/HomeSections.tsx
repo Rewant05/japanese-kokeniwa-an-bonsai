@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from '../components/AppLink';
 import BonsaiCard from '../components/BonsaiCard';
 import CareCalendarCard from '../components/CareCalendarCard';
 import ScrollReveal from '../components/ScrollReveal';

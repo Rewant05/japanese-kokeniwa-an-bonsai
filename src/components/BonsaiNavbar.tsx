@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import Link from './AppLink';
+import { Menu, X } from './icons';
 import { siteSummary } from '../config/siteSummary';
 import styles from './BonsaiNavbar.module.css';
 import WoodenLabelCTA from './WoodenLabelCTA';

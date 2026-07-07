@@ -1,6 +1,6 @@
 import React from 'react';
 import { siteData } from '../config/siteData';
-import { Leaf } from 'lucide-react';
+import { Leaf } from '../components/icons';
 
 const About: React.FC = () => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './WorkshopCard.module.css';
-import { Clock, Users, Leaf } from 'lucide-react';
+import { Clock, Users, Leaf } from './icons';
 import WoodenLabelCTA from './WoodenLabelCTA';
 import { getOptimizedImage } from '../config/imageAssets';
 

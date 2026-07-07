@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from './AppLink';
 import { siteData } from '../config/siteData';
 import styles from './Footer.module.css';
 
