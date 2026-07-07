@@ -1,23 +1,21 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './BonsaiDisplayHero.module.css';
 import WoodenLabelCTA from './WoodenLabelCTA';
 import { siteData } from '../config/siteData';
 
 const BonsaiDisplayHero: React.FC = () => {
-  const [loaded, setLoaded] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
   const frameRef = useRef<number | null>(null);
   const pointerRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoaded(true), 100);
     const hero = heroRef.current;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const canUsePointerParallax = window.matchMedia('(pointer: fine)').matches && !prefersReducedMotion;
 
     if (!hero || !canUsePointerParallax) {
-      return () => clearTimeout(timer);
+      return;
     }
 
     const commitPointerVars = () => {
@@ -49,7 +47,6 @@ const BonsaiDisplayHero: React.FC = () => {
     hero.addEventListener('pointerleave', resetPointer);
 
     return () => {
-      clearTimeout(timer);
       hero.removeEventListener('pointermove', handlePointerMove);
       hero.removeEventListener('pointerleave', resetPointer);
       if (frameRef.current !== null) {
@@ -63,30 +60,30 @@ const BonsaiDisplayHero: React.FC = () => {
       className={`${styles.hero} bg-raked-sand`} 
       ref={heroRef}
     >
-      <div className={`${styles.tokonomaWrapper} ${loaded ? styles.loaded : ''}`}>
-        <div 
-          className={`${styles.alcove} ${loaded ? styles.loaded : ''}`}
-        >
+      <div className={styles.tokonomaWrapper}>
+        <div className={styles.alcove}>
           <div className={styles.bonsaiSilhouette}>
             <img
-              src="/hero_bonsai.png"
+              src="/hero_bonsai-520.jpg"
+              srcSet="/hero_bonsai-360.jpg 360w, /hero_bonsai-520.jpg 520w, /hero_bonsai-720.jpg 720w"
+              sizes="(max-width: 767px) 200px, 240px"
               alt="Premium Bonsai"
               className={styles.bonsaiImage}
-              width="1024"
-              height="1024"
+              width="520"
+              height="520"
               decoding="async"
               fetchPriority="high"
             />
           </div>
         </div>
 
-        <div className={`${styles.careTag} ${styles.careTagSun} ${loaded ? styles.loaded : ''}`}>
+        <div className={`${styles.careTag} ${styles.careTagSun}`}>
           日当たり
         </div>
-        <div className={`${styles.careTag} ${styles.careTagWater} ${loaded ? styles.loaded : ''}`}>
+        <div className={`${styles.careTag} ${styles.careTagWater}`}>
           水やり
         </div>
-        <div className={`${styles.careTag} ${styles.careTagPrune} ${loaded ? styles.loaded : ''}`}>
+        <div className={`${styles.careTag} ${styles.careTagPrune}`}>
           剪定
         </div>
       </div>
