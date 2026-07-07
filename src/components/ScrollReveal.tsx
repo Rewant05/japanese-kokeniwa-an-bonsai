@@ -12,35 +12,46 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children, 
   animation = 'fadeUp', 
   delay = 0,
-  duration = 800
+  duration = 600
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const node = ref.current;
+
+    if (!node || !('IntersectionObserver' in window)) {
+      setIsVisible(true);
+      return;
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setIsVisible(true);
+      return;
+    }
+
+    let revealFrame: number | null = null;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
-          if (ref.current) {
-            observer.unobserve(ref.current);
-          }
+          revealFrame = window.requestAnimationFrame(() => setIsVisible(true));
+          observer.unobserve(entry.target);
         }
       },
       {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.1,
+        rootMargin: '0px 0px -8% 0px',
+        threshold: 0.01,
       }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    observer.observe(node);
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      observer.unobserve(node);
+      if (revealFrame !== null) {
+        window.cancelAnimationFrame(revealFrame);
       }
     };
   }, []);

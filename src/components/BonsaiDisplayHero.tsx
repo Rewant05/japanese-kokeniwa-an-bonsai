@@ -6,67 +6,87 @@ import { siteData } from '../config/siteData';
 
 const BonsaiDisplayHero: React.FC = () => {
   const [loaded, setLoaded] = useState(false);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const heroRef = useRef<HTMLElement>(null);
+  const frameRef = useRef<number | null>(null);
+  const pointerRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
-    // Trigger entrance animation
     const timer = setTimeout(() => setLoaded(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
+    const hero = heroRef.current;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const canUsePointerParallax = window.matchMedia('(pointer: fine)').matches && !prefersReducedMotion;
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!heroRef.current) return;
-    const { clientX, clientY } = e;
-    const { innerWidth, innerHeight } = window;
-    
-    // Calculate mouse position relative to center of screen (-1 to 1)
-    const x = (clientX / innerWidth - 0.5) * 2;
-    const y = (clientY / innerHeight - 0.5) * 2;
-    
-    setMousePos({ x, y });
-  };
+    if (!hero || !canUsePointerParallax) {
+      return () => clearTimeout(timer);
+    }
+
+    const commitPointerVars = () => {
+      frameRef.current = null;
+      hero.style.setProperty('--parallax-x', pointerRef.current.x.toFixed(3));
+      hero.style.setProperty('--parallax-y', pointerRef.current.y.toFixed(3));
+    };
+
+    const schedulePointerUpdate = () => {
+      if (frameRef.current === null) {
+        frameRef.current = window.requestAnimationFrame(commitPointerVars);
+      }
+    };
+
+    const handlePointerMove = (event: PointerEvent) => {
+      pointerRef.current = {
+        x: (event.clientX / window.innerWidth - 0.5) * 2,
+        y: (event.clientY / window.innerHeight - 0.5) * 2,
+      };
+      schedulePointerUpdate();
+    };
+
+    const resetPointer = () => {
+      pointerRef.current = { x: 0, y: 0 };
+      schedulePointerUpdate();
+    };
+
+    hero.addEventListener('pointermove', handlePointerMove, { passive: true });
+    hero.addEventListener('pointerleave', resetPointer);
+
+    return () => {
+      clearTimeout(timer);
+      hero.removeEventListener('pointermove', handlePointerMove);
+      hero.removeEventListener('pointerleave', resetPointer);
+      if (frameRef.current !== null) {
+        window.cancelAnimationFrame(frameRef.current);
+      }
+    };
+  }, []);
 
   return (
     <section 
       className={`${styles.hero} bg-raked-sand`} 
       ref={heroRef}
-      onMouseMove={handleMouseMove}
     >
-      <div 
-        className={`${styles.tokonomaWrapper} ${loaded ? styles.loaded : ''}`}
-        style={{
-          transform: `translate(${mousePos.x * -10}px, ${mousePos.y * -10}px)`
-        }}
-      >
+      <div className={`${styles.tokonomaWrapper} ${loaded ? styles.loaded : ''}`}>
         <div 
           className={`${styles.alcove} ${loaded ? styles.loaded : ''}`}
-          style={{
-            transform: loaded ? `translate(${mousePos.x * 15}px, ${mousePos.y * 15}px) scale(1)` : 'scale(0.9) translateY(20px)'
-          }}
         >
           <div className={styles.bonsaiSilhouette}>
-            <img src="/hero_bonsai.png" alt="Premium Bonsai" style={{ width: '100%', height: '100%', objectFit: 'contain', filter: 'drop-shadow(0 20px 30px rgba(0,0,0,0.15))' }} />
+            <img
+              src="/hero_bonsai.png"
+              alt="Premium Bonsai"
+              className={styles.bonsaiImage}
+              width="1024"
+              height="1024"
+              decoding="async"
+              fetchPriority="high"
+            />
           </div>
         </div>
 
-        {/* Floating Care Tags */}
-        <div 
-          className={`${styles.careTag} ${loaded ? styles.loaded : ''}`} 
-          style={{ top: '15%', left: '-10%', animationDelay: '0.2s', transform: `translate(${mousePos.x * -20}px, ${mousePos.y * -20}px)` }}
-        >
+        <div className={`${styles.careTag} ${styles.careTagSun} ${loaded ? styles.loaded : ''}`}>
           日当たり
         </div>
-        <div 
-          className={`${styles.careTag} ${loaded ? styles.loaded : ''}`} 
-          style={{ top: '40%', right: '-15%', animationDelay: '1.5s', transform: `translate(${mousePos.x * -25}px, ${mousePos.y * -25}px)` }}
-        >
+        <div className={`${styles.careTag} ${styles.careTagWater} ${loaded ? styles.loaded : ''}`}>
           水やり
         </div>
-        <div 
-          className={`${styles.careTag} ${loaded ? styles.loaded : ''}`} 
-          style={{ bottom: '25%', left: '-5%', animationDelay: '2.8s', transform: `translate(${mousePos.x * -15}px, ${mousePos.y * -15}px)` }}
-        >
+        <div className={`${styles.careTag} ${styles.careTagPrune} ${loaded ? styles.loaded : ''}`}>
           剪定
         </div>
       </div>

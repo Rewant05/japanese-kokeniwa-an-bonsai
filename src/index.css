@@ -35,6 +35,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -73,16 +74,6 @@ button {
     rgba(156, 155, 150, 0.02) 40px,
     rgba(156, 155, 150, 0.02) 41px
   );
-  animation: sandScroll 120s linear infinite;
-}
-
-@keyframes sandScroll {
-  0% {
-    background-position: 0 0, 0 0;
-  }
-  100% {
-    background-position: 200px 200px, -100px 100px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -99,6 +90,8 @@ button {
 
 .section {
   padding: 100px 0;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
 }
 
 .section-title {
@@ -130,4 +123,29 @@ button {
   font-size: 15px;
   max-width: 600px;
   margin: 24px auto 0;
+}
+
+@media (max-width: 767px) {
+  .bg-raked-sand {
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 18px,
+      rgba(156, 155, 150, 0.035) 18px,
+      rgba(156, 155, 150, 0.035) 19px
+    );
+  }
+
+  .container {
+    padding: 0 18px;
+  }
+
+  .section {
+    padding: 72px 0;
+    contain-intrinsic-size: auto 640px;
+  }
+
+  .section-title {
+    margin-bottom: 42px;
+  }
 }

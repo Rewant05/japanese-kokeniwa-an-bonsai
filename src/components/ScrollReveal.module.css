@@ -1,25 +1,30 @@
 .revealWrapper {
   opacity: 0;
-  will-change: transform, opacity;
   transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
   transition-property: opacity, transform;
+  backface-visibility: hidden;
 }
 
 .revealWrapper.visible {
   opacity: 1;
-  transform: translate(0, 0) scale(1);
+  transform: translate3d(0, 0, 0) scale(1);
+  will-change: auto;
+}
+
+.revealWrapper:not(.visible) {
+  will-change: transform, opacity;
 }
 
 .fadeUp {
-  transform: translateY(40px);
+  transform: translate3d(0, 28px, 0);
 }
 
 .fadeLeft {
-  transform: translateX(-40px);
+  transform: translate3d(-28px, 0, 0);
 }
 
 .fadeRight {
-  transform: translateX(40px);
+  transform: translate3d(28px, 0, 0);
 }
 
 .zoomIn {
@@ -31,5 +36,17 @@
     transition: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .fadeUp,
+  .fadeLeft,
+  .fadeRight {
+    transform: translate3d(0, 16px, 0);
+  }
+
+  .zoomIn {
+    transform: translate3d(0, 10px, 0);
   }
 }

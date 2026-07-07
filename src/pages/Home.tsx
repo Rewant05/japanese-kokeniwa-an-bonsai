@@ -13,7 +13,7 @@ const Home: React.FC = () => {
       <BonsaiDisplayHero />
       
       {/* Beginner Guide Preview */}
-      <section className="section bg-raked-sand" style={{ animationDirection: 'reverse' }}>
+      <section className="section bg-raked-sand">
         <div className="container">
           <ScrollReveal animation="fadeUp">
             <div className="section-title">

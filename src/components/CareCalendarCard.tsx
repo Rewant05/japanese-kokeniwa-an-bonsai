@@ -20,7 +20,15 @@ const CareCalendarCard: React.FC<CareCalendarCardProps> = ({
     <div className={styles.card}>
       {imageUrl && (
         <div className={styles.imageWrapper}>
-          <img src={imageUrl} alt={season} className={styles.image} loading="lazy" />
+          <img
+            src={imageUrl}
+            alt={season}
+            className={styles.image}
+            loading="lazy"
+            decoding="async"
+            width="1024"
+            height="1024"
+          />
         </div>
       )}
       <div className={styles.cardContent}>

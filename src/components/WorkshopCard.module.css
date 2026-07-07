@@ -9,6 +9,7 @@
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   position: relative;
   overflow: hidden;
+  contain: layout paint;
 }
 
 .imageWrapper {
@@ -22,6 +23,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  aspect-ratio: 1 / 1;
   transition: transform 0.8s ease;
 }
 
@@ -49,6 +51,13 @@
 .card:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+@media (hover: none) {
+  .card:hover,
+  .card:hover .image {
+    transform: none;
+  }
 }
 
 .name {
