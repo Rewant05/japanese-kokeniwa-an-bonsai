@@ -1,6 +1,6 @@
 export const siteSummary = {
   websiteName: '苔庭庵',
-  romanizedName: 'Kokeniwa An',
+  romanizedName: '盆栽アトリエ',
   description:
     '苔庭庵は、盆栽の選び方、育て方、剪定、苔の扱い、季節ごとの手入れをやさしく紹介する架空の盆栽アトリエサイトです。',
   navigation: [

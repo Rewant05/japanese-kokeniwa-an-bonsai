@@ -13,12 +13,12 @@ const HomeSections: React.FC = () => {
         <div className="container">
           <ScrollReveal animation="fadeUp">
             <div className="section-title">
-              <h2>ç›†æ ½ã‚’å§‹ã‚ã‚‹</h2>
-              <p>åˆã‚ã¦ã®æ–¹ã«ãŠã™ã™ã‚ã®ä»£è¡¨çš„ãªæ¨¹ç¨®ã‚’ã”ç´¹ä»‹ã—ã¾ã™ã€‚</p>
+              <h2>盆栽を始める</h2>
+              <p>初めての方におすすめの代表的な樹種をご紹介します。</p>
             </div>
           </ScrollReveal>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px', marginBottom: '50px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '32px', marginBottom: '50px' }}>
             {siteData.bonsaiGuides.slice(0, 3).map((guide, idx) => (
               <ScrollReveal key={idx} animation="fadeUp" delay={idx * 150}>
                 <BonsaiCard {...guide} />
@@ -29,7 +29,7 @@ const HomeSections: React.FC = () => {
           <ScrollReveal animation="zoomIn" delay={200}>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <Link to="/guide">
-                <WoodenLabelCTA text="ã™ã¹ã¦ã®ç›†æ ½ã‚¬ã‚¤ãƒ‰ã‚’è¦‹ã‚‹" />
+                <WoodenLabelCTA text="すべての盆栽ガイドを見る" />
               </Link>
             </div>
           </ScrollReveal>
@@ -40,12 +40,12 @@ const HomeSections: React.FC = () => {
         <div className="container">
           <ScrollReveal animation="fadeUp">
             <div className="section-title">
-              <h2>å­£ç¯€ã®æ‰‹å…¥ã‚Œ</h2>
-              <p>å°ã•ãªåº­ã«ã‚‚ã€å››å­£ã®ç§»ã‚ã„ãŒã‚ã‚Šã¾ã™ã€‚</p>
+              <h2>季節の手入れ</h2>
+              <p>小さな庭にも、四季の移ろいがあります。</p>
             </div>
           </ScrollReveal>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px', marginBottom: '50px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '32px', marginBottom: '50px' }}>
             {siteData.careCalendar.slice(0, 2).map((season, idx) => (
               <ScrollReveal key={idx} animation="fadeUp" delay={idx * 200}>
                 <CareCalendarCard index={idx} {...season} />
@@ -56,7 +56,7 @@ const HomeSections: React.FC = () => {
           <ScrollReveal animation="zoomIn" delay={200}>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <Link to="/calendar">
-                <WoodenLabelCTA text="å¹´é–“ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼ã‚’è¦‹ã‚‹" />
+                <WoodenLabelCTA text="年間カレンダーを見る" />
               </Link>
             </div>
           </ScrollReveal>
@@ -67,15 +67,15 @@ const HomeSections: React.FC = () => {
         <div className="container" style={{ textAlign: 'center', maxWidth: '800px' }}>
           <ScrollReveal animation="fadeUp">
             <div className="section-title">
-              <h2>ç›†æ ½ä½“é¨“ãƒ»ãƒ¯ãƒ¼ã‚¯ã‚·ãƒ§ãƒƒãƒ—</h2>
+              <h2>盆栽体験・ワークショップ</h2>
             </div>
             <p style={{ marginTop: '24px', marginBottom: '40px', lineHeight: '2' }}>
-              è‹”åº­åºµã§ã¯ã€åœŸã«è§¦ã‚Œã€æ¨¹ã¨å‘ãåˆã†é™ã‹ãªæ™‚é–“ã‚’æä¾›ã—ã¦ã„ã¾ã™ã€‚<br />
-              åˆå¿ƒè€…ã®æ–¹ã‚‚ã€é“å…·ã‚’æŒãŸãšã«ãŠæ°—è»½ã«ã”å‚åŠ ã„ãŸã ã‘ã¾ã™ã€‚
+              苔庭庵では、土に触れ、樹と向き合う静かな時間を提供しています。<br />
+              初心者の方も、道具を持たずにお気軽にご参加いただけます。
             </p>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <Link to="/workshop">
-                <WoodenLabelCTA text="ãƒ¯ãƒ¼ã‚¯ã‚·ãƒ§ãƒƒãƒ—ä¸€è¦§ã‚’è¦‹ã‚‹" />
+                <WoodenLabelCTA text="ワークショップ一覧を見る" />
               </Link>
             </div>
             <p style={{ marginTop: '32px', fontSize: '13px', color: 'var(--stone-gray)', padding: '16px', border: '1px dashed rgba(156, 155, 150, 0.4)', borderRadius: '4px' }}>
@@ -88,13 +88,13 @@ const HomeSections: React.FC = () => {
       <section className="section" style={{ backgroundColor: 'var(--pine-black)', color: 'var(--warm-ivory)', backgroundImage: 'radial-gradient(circle at 50% 100%, rgba(82, 103, 67, 0.2) 0%, transparent 50%)' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <ScrollReveal animation="fadeUp">
-            <h2 style={{ color: 'var(--warm-ivory)', fontSize: '32px', marginBottom: '16px' }}>ãŠå•ã„åˆã‚ã›</h2>
+            <h2 style={{ color: 'var(--warm-ivory)', fontSize: '32px', marginBottom: '16px' }}>お問い合わせ</h2>
             <p style={{ marginBottom: '40px', color: 'var(--stone-gray-light)' }}>
-              è‚²ã¦æ–¹ã®ç›¸è«‡ã‚„ã€ã‚¢ãƒˆãƒªã‚¨ã¸ã®ã”è³ªå•ã¯ã“ã¡ã‚‰ã‹ã‚‰æ‰¿ã‚Šã¾ã™ã€‚
+              育て方の相談や、アトリエへのご質問はこちらから承ります。
             </p>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <Link to="/contact">
-                <WoodenLabelCTA text="ãŠå•ã„åˆã‚ã›ãƒ•ã‚©ãƒ¼ãƒ ã¸" />
+                <WoodenLabelCTA text="お問い合わせフォームへ" />
               </Link>
             </div>
           </ScrollReveal>

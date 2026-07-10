@@ -8,7 +8,7 @@ const CareCalendar: React.FC = () => {
       <div className="container" style={{ maxWidth: '900px' }}>
         <div style={{ textAlign: 'center', marginBottom: '60px' }}>
           <h1 style={{ fontSize: '36px', marginBottom: '16px' }}>手入れ暦</h1>
-          <p style={{ color: 'var(--moss-green)', letterSpacing: '0.1em' }}>CARE CALENDAR</p>
+          <p style={{ color: 'var(--moss-green)', letterSpacing: 0 }}>季節の手入れ</p>
           <p style={{ marginTop: '24px', color: 'var(--soil-brown)', maxWidth: '600px', margin: '24px auto 0' }}>
             盆栽は季節とともに変化し、その時々に必要な手入れがあります。
             一年を通して植物と寄り添うための、基本的な作業カレンダーです。

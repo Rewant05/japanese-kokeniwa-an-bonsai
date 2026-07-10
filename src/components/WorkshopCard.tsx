@@ -3,6 +3,7 @@ import styles from './WorkshopCard.module.css';
 import { Clock, Users, Leaf } from './icons';
 import WoodenLabelCTA from './WoodenLabelCTA';
 import { getOptimizedImage } from '../config/imageAssets';
+import { navigateTo } from './AppLink';
 
 interface WorkshopCardProps {
   title: string;
@@ -72,7 +73,7 @@ const WorkshopCard: React.FC<WorkshopCardProps> = ({
         </div>
         
         <div className={styles.ctaWrapper}>
-          <WoodenLabelCTA text={cta} onClick={() => window.location.href = '#contact'} />
+          <WoodenLabelCTA text={cta} onClick={() => navigateTo('/contact')} />
         </div>
       </div>
     </div>

@@ -21,7 +21,6 @@ const BonsaiNavbar: React.FC = () => {
           </div>
         </Link>
 
-        {/* Desktop Nav */}
         <nav className={styles.desktopNav}>
           <ul className={styles.navLinks}>
             {siteSummary.navigation.map((item, index) => (
@@ -35,12 +34,10 @@ const BonsaiNavbar: React.FC = () => {
           </Link>
         </nav>
 
-        {/* Mobile Nav Toggle */}
-        <button className={styles.mobileToggle} onClick={toggleMenu} aria-label="Toggle menu">
+        <button className={styles.mobileToggle} onClick={toggleMenu} aria-label="メニューを開閉する">
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
 
-        {/* Mobile Nav */}
         <div className={`${styles.mobileNav} ${isOpen ? styles.open : ''}`}>
           <ul className={styles.mobileNavLinks}>
             {siteSummary.navigation.map((item, index) => (

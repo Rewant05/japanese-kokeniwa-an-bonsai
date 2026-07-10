@@ -25,7 +25,10 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
       return;
     }
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+
+    if (prefersReducedMotion || isCoarsePointer) {
       setIsVisible(true);
       return;
     }

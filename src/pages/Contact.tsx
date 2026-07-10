@@ -9,13 +9,13 @@ const Contact: React.FC = () => {
       <div className="container" style={{ maxWidth: '900px' }}>
         <div style={{ textAlign: 'center', marginBottom: '60px' }}>
           <h1 style={{ fontSize: '36px', marginBottom: '16px' }}>お問い合わせ</h1>
-          <p style={{ color: 'var(--moss-green)', letterSpacing: '0.1em' }}>CONTACT</p>
+          <p style={{ color: 'var(--moss-green)', letterSpacing: 0 }}>ご相談窓口</p>
           <p style={{ marginTop: '24px', color: 'var(--soil-brown)', maxWidth: '600px', margin: '24px auto 0' }}>
             育て方のご相談や、ワークショップについてのご質問など、お気軽にお問い合わせください。
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '40px' }}>
           
           <div style={{ padding: '32px', backgroundColor: 'rgba(213, 213, 209, 0.2)', borderRadius: '4px' }}>
             <h3 style={{ fontSize: '20px', marginBottom: '24px', color: 'var(--pine-black)', borderBottom: '2px solid var(--moss-green-light)', paddingBottom: '8px' }}>アトリエ情報</h3>
@@ -51,8 +51,8 @@ const Contact: React.FC = () => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 {siteData.faqs.map((faq, idx) => (
                   <div key={idx} style={{ backgroundColor: 'var(--warm-ivory)', padding: '16px', borderRadius: '4px', fontSize: '13px' }}>
-                    <p style={{ fontWeight: 'bold', color: 'var(--moss-green-dark)', marginBottom: '8px' }}>Q. {faq.q}</p>
-                    <p style={{ color: 'var(--soil-brown)' }}>A. {faq.a}</p>
+                    <p style={{ fontWeight: 'bold', color: 'var(--moss-green-dark)', marginBottom: '8px' }}>問. {faq.q}</p>
+                    <p style={{ color: 'var(--soil-brown)' }}>答. {faq.a}</p>
                   </div>
                 ))}
               </div>

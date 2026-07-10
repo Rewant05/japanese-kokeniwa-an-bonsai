@@ -18,8 +18,8 @@ const Footer: React.FC = () => {
           <div className={styles.addressBlock}>
             <p>{siteData.atelierName}</p>
             <p>{siteData.address}</p>
-            <p>営業時間: {siteData.businessHours}</p>
-            <p>Email: <a href={`mailto:${siteData.email}`}>{siteData.email}</a></p>
+            <p>営業時間：{siteData.businessHours}</p>
+            <p>メール：<a href={`mailto:${siteData.email}`}>{siteData.email}</a></p>
           </div>
         </div>
         
@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
         <div className="container">
           <p className={styles.disclaimer}>{siteData.disclaimers.fictional}</p>
           <p className={styles.disclaimer}>{siteData.disclaimers.plantCare}</p>
-          <p className={styles.copyright}>&copy; {new Date().getFullYear()} {siteData.websiteName}. All rights reserved.</p>
+          <p className={styles.copyright}>&copy; {new Date().getFullYear()} {siteData.websiteName}。無断転載を禁じます。</p>
         </div>
       </div>
     </footer>

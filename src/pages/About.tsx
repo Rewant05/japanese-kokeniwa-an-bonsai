@@ -9,7 +9,7 @@ const About: React.FC = () => {
         <div style={{ textAlign: 'center', marginBottom: '60px' }}>
           <div style={{ width: '48px', height: '48px', backgroundColor: 'var(--vermilion)', color: 'var(--warm-ivory)', fontFamily: 'var(--font-serif)', fontSize: '24px', display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '0 auto 24px', borderRadius: '4px' }}>庵</div>
           <h1 style={{ fontSize: '36px', marginBottom: '16px' }}>私たちについて</h1>
-          <p style={{ color: 'var(--moss-green)', letterSpacing: '0.1em' }}>ABOUT US</p>
+          <p style={{ color: 'var(--moss-green)', letterSpacing: 0 }}>苔庭庵のこと</p>
         </div>
 
         <section style={{ backgroundColor: 'var(--warm-ivory)', padding: '40px', borderRadius: '4px', border: '1px solid var(--stone-gray-light)', marginBottom: '40px', lineHeight: '2' }}>
@@ -18,7 +18,7 @@ const About: React.FC = () => {
           </h2>
           
           <p style={{ marginBottom: '24px' }}>
-            苔庭庵（Kokeniwa An）は、日本の伝統的な盆栽文化を、現代の暮らしにやさしく取り入れるための架空のアトリエです。
+            苔庭庵（こけにわあん）は、日本の伝統的な盆栽文化を、現代の暮らしにやさしく取り入れるための架空のアトリエです。
           </p>
           
           <p style={{ marginBottom: '24px' }}>

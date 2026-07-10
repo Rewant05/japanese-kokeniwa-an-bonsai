@@ -67,7 +67,7 @@ const BonsaiDisplayHero: React.FC = () => {
               src="/hero_bonsai-520.jpg"
               srcSet="/hero_bonsai-360.jpg 360w, /hero_bonsai-520.jpg 520w, /hero_bonsai-720.jpg 720w"
               sizes="(max-width: 767px) 200px, 240px"
-              alt="Premium Bonsai"
+              alt="苔庭庵の盆栽"
               className={styles.bonsaiImage}
               width="520"
               height="520"
@@ -102,7 +102,6 @@ const BonsaiDisplayHero: React.FC = () => {
         </div>
       </div>
 
-      {/* Seasonal care calendar strip */}
       <div className={styles.seasonalStrip}>
         <div className={styles.seasonalTrack}>
           {siteSummary.seasonalStrip.map((season, idx) => (
@@ -111,7 +110,6 @@ const BonsaiDisplayHero: React.FC = () => {
               {season}
             </div>
           ))}
-          {/* Duplicate for infinite scroll illusion */}
           {siteSummary.seasonalStrip.map((season, idx) => (
             <div key={`dup-${idx}`} className={styles.seasonalItem}>
               <span className={styles.seasonMark}>〇</span>

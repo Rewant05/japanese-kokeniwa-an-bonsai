@@ -49,14 +49,14 @@
 .siteName {
   font-family: var(--font-serif);
   font-size: 24px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0;
 }
 
 .tagline {
   font-family: var(--font-serif);
   color: var(--stone-gray-light);
   margin-bottom: 32px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0;
   font-size: 15px;
 }
 
@@ -97,7 +97,7 @@
   color: var(--stone-gray-light);
   transition: all 0.3s ease;
   display: inline-block;
-  letter-spacing: 0.05em;
+  letter-spacing: 0;
 }
 
 .footerLinks a:hover {
@@ -124,6 +124,6 @@
 
 .copyright {
   margin-top: 32px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0;
   font-family: var(--font-serif);
 }

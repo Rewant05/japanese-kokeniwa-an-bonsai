@@ -8,14 +8,14 @@ const BonsaiGuide: React.FC = () => {
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '60px' }}>
           <h1 style={{ fontSize: '36px', marginBottom: '16px' }}>盆栽ガイド</h1>
-          <p style={{ color: 'var(--moss-green)', letterSpacing: '0.1em' }}>BONSAI GUIDE</p>
+          <p style={{ color: 'var(--moss-green)', letterSpacing: 0 }}>樹種と育て方</p>
           <p style={{ marginTop: '24px', color: 'var(--soil-brown)', maxWidth: '600px', margin: '24px auto 0' }}>
             苔庭庵がおすすめする、代表的な盆栽の種類と育て方の基本をご紹介します。
             お住まいの環境やライフスタイルに合ったひと鉢を見つけてください。
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))', gap: '24px' }}>
           {siteData.bonsaiGuides.map((guide, index) => (
             <BonsaiCard key={index} {...guide} />
           ))}

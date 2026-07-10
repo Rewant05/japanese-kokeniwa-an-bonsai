@@ -48,14 +48,14 @@
   font-size: 24px;
   color: var(--pine-black);
   line-height: 1;
-  letter-spacing: 0.1em;
+  letter-spacing: 0;
 }
 
 .romanized {
   font-family: var(--font-sans);
   font-size: 11px;
   color: var(--moss-green);
-  letter-spacing: 0.15em;
+  letter-spacing: 0;
   text-transform: uppercase;
   margin-top: 6px;
   font-weight: 500;
@@ -160,7 +160,7 @@
   font-family: var(--font-serif);
   font-size: 18px;
   color: var(--pine-black);
-  letter-spacing: 0.05em;
+  letter-spacing: 0;
 }
 
 .mobileCtaWrapper {

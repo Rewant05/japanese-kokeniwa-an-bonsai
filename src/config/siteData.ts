@@ -1,6 +1,6 @@
 export const siteData = {
   websiteName: "苔庭庵",
-  romanizedName: "Kokeniwa An",
+  romanizedName: "盆栽アトリエ",
   tagline: "小さな鉢に、静かな景色を育てる。",
   description: "苔庭庵は、盆栽の選び方、育て方、剪定、苔の扱い、季節ごとの手入れをやさしく紹介する架空の盆栽アトリエサイトです。",
   atelierName: "苔庭庵 盆栽アトリエ",
@@ -27,7 +27,7 @@ export const siteData = {
   disclaimers: {
     plantCare: "掲載している盆栽の育て方、水やり、日当たり、剪定、植え替えの情報は一般的な編集情報です。植物の状態、地域の気候、育成環境によって適切な管理は異なります。",
     workshopSafety: "実際の体験では剪定ばさみ、針金、土、鉢などを扱う場合があります。道具の使用時は案内に従い、安全にご参加ください。",
-    fictional: "This website is a fictional bonsai atelier website concept and does not represent a real nursery, official horticulture association, or payment service."
+    fictional: "当サイトは架空の盆栽アトリエを題材にしたコンセプトサイトです。実在する園芸店、団体、決済サービスとは関係ありません。"
   },
 
   bonsaiGuides: [
