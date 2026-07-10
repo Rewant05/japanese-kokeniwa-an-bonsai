@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import styles from './CareCalendarCard.module.css';
 import { Droplets, Scissors, AlertCircle, Eye } from './icons';
 import { getOptimizedImage } from '../config/imageAssets';
@@ -23,14 +24,12 @@ const CareCalendarCard: React.FC<CareCalendarCardProps> = ({
     <div className={styles.card}>
       {optimizedImage && (
         <div className={styles.imageWrapper}>
-          <img
+          <Image
             src={optimizedImage.src}
-            srcSet={optimizedImage.srcSet}
             sizes={optimizedImage.sizes}
             alt={season}
             className={styles.image}
             loading="lazy"
-            decoding="async"
             width={optimizedImage.width}
             height={optimizedImage.height}
           />

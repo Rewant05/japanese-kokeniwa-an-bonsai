@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from '../components/AppLink';
 import BonsaiCard from '../components/BonsaiCard';
 import CareCalendarCard from '../components/CareCalendarCard';
 import ScrollReveal from '../components/ScrollReveal';
@@ -28,9 +27,7 @@ const HomeSections: React.FC = () => {
 
           <ScrollReveal animation="zoomIn" delay={200}>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <Link to="/guide">
-                <WoodenLabelCTA text="すべての盆栽ガイドを見る" />
-              </Link>
+              <WoodenLabelCTA text="すべての盆栽ガイドを見る" href="/collection" />
             </div>
           </ScrollReveal>
         </div>
@@ -55,9 +52,7 @@ const HomeSections: React.FC = () => {
 
           <ScrollReveal animation="zoomIn" delay={200}>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <Link to="/calendar">
-                <WoodenLabelCTA text="年間カレンダーを見る" />
-              </Link>
+              <WoodenLabelCTA text="年間カレンダーを見る" href="/care-guide" />
             </div>
           </ScrollReveal>
         </div>
@@ -74,9 +69,7 @@ const HomeSections: React.FC = () => {
               初心者の方も、道具を持たずにお気軽にご参加いただけます。
             </p>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <Link to="/workshop">
-                <WoodenLabelCTA text="ワークショップ一覧を見る" />
-              </Link>
+              <WoodenLabelCTA text="ワークショップ一覧を見る" href="/workshops" />
             </div>
             <p style={{ marginTop: '32px', fontSize: '13px', color: 'var(--stone-gray)', padding: '16px', border: '1px dashed rgba(156, 155, 150, 0.4)', borderRadius: '4px' }}>
               {siteData.disclaimers.workshopSafety}
@@ -93,9 +86,7 @@ const HomeSections: React.FC = () => {
               育て方の相談や、アトリエへのご質問はこちらから承ります。
             </p>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <Link to="/contact">
-                <WoodenLabelCTA text="お問い合わせフォームへ" />
-              </Link>
+              <WoodenLabelCTA text="お問い合わせフォームへ" href="/contact" />
             </div>
           </ScrollReveal>
         </div>

@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   /* Enhanced Earthy Palette */
   --moss-green: #526743;

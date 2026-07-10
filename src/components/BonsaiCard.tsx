@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import styles from './BonsaiCard.module.css';
 import { Leaf, Sun, Droplets, Sparkles } from './icons';
 import { getOptimizedImage } from '../config/imageAssets';
@@ -24,14 +25,12 @@ const BonsaiCard: React.FC<BonsaiCardProps> = ({
     <div className={styles.card}>
       {optimizedImage && (
         <div className={styles.imageWrapper}>
-          <img
+          <Image
             src={optimizedImage.src}
-            srcSet={optimizedImage.srcSet}
             sizes={optimizedImage.sizes}
             alt={name}
             className={styles.image}
             loading="lazy"
-            decoding="async"
             width={optimizedImage.width}
             height={optimizedImage.height}
           />

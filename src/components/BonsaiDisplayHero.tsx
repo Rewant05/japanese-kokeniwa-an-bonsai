@@ -1,4 +1,7 @@
+'use client';
+
 import React, { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Link from './AppLink';
 import styles from './BonsaiDisplayHero.module.css';
 import WoodenLabelCTA from './WoodenLabelCTA';
@@ -63,16 +66,14 @@ const BonsaiDisplayHero: React.FC = () => {
       <div className={styles.tokonomaWrapper}>
         <div className={styles.alcove}>
           <div className={styles.bonsaiSilhouette}>
-            <img
-              src="/hero_bonsai-520.jpg"
-              srcSet="/hero_bonsai-360.jpg 360w, /hero_bonsai-520.jpg 520w, /hero_bonsai-720.jpg 720w"
+            <Image
+              src="/hero_bonsai-720.jpg"
               sizes="(max-width: 767px) 200px, 240px"
               alt="苔庭庵の盆栽"
               className={styles.bonsaiImage}
-              width="520"
-              height="520"
-              decoding="async"
-              fetchPriority="high"
+              width={720}
+              height={720}
+              priority
             />
           </div>
         </div>
@@ -93,10 +94,8 @@ const BonsaiDisplayHero: React.FC = () => {
         <p className={styles.subtext}>{siteSummary.description}</p>
         
         <div className={styles.ctaGroup}>
-          <Link to="/guide">
-            <WoodenLabelCTA text="盆栽ガイドを見る" />
-          </Link>
-          <Link to="/workshop" className={styles.secondaryCta}>
+          <WoodenLabelCTA text="盆栽ガイドを見る" href="/collection" />
+          <Link to="/care-guide" className={styles.secondaryCta}>
             手入れを学ぶ
           </Link>
         </div>

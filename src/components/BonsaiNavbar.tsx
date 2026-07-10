@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import Link from './AppLink';
 import { Menu, X } from './icons';
@@ -29,9 +31,7 @@ const BonsaiNavbar: React.FC = () => {
               </li>
             ))}
           </ul>
-          <Link to="/guide">
-            <WoodenLabelCTA text="育て方を見る" />
-          </Link>
+          <WoodenLabelCTA text="育て方を見る" href="/collection" />
         </nav>
 
         <button className={styles.mobileToggle} onClick={toggleMenu} aria-label="メニューを開閉する">
@@ -48,9 +48,7 @@ const BonsaiNavbar: React.FC = () => {
               </li>
             ))}
             <li className={styles.mobileCtaWrapper}>
-              <Link to="/guide" onClick={() => setIsOpen(false)}>
-                <WoodenLabelCTA text="育て方を見る" />
-              </Link>
+              <WoodenLabelCTA text="育て方を見る" href="/collection" onClick={() => setIsOpen(false)} />
             </li>
           </ul>
         </div>

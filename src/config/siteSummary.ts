@@ -5,9 +5,9 @@ export const siteSummary = {
     '苔庭庵は、盆栽の選び方、育て方、剪定、苔の扱い、季節ごとの手入れをやさしく紹介する架空の盆栽アトリエサイトです。',
   navigation: [
     { label: '私たちについて', path: '/about' },
-    { label: '盆栽ガイド', path: '/guide' },
-    { label: '手入れ暦', path: '/calendar' },
-    { label: '盆栽体験', path: '/workshop' },
+    { label: '盆栽ガイド', path: '/collection' },
+    { label: '手入れ暦', path: '/care-guide' },
+    { label: '盆栽体験', path: '/workshops' },
     { label: 'お問い合わせ', path: '/contact' },
   ],
   seasonalStrip: [

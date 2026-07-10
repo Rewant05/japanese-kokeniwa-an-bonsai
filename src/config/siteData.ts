@@ -11,16 +11,16 @@ export const siteData = {
   
   navigation: [
     { label: "私たちについて", path: "/about" },
-    { label: "盆栽ガイド", path: "/guide" },
-    { label: "手入れ暦", path: "/calendar" },
-    { label: "盆栽体験", path: "/workshop" },
+    { label: "盆栽ガイド", path: "/collection" },
+    { label: "手入れ暦", path: "/care-guide" },
+    { label: "盆栽体験", path: "/workshops" },
     { label: "お問い合わせ", path: "/contact" }
   ],
   
   footerLinks: [
     { label: "ホーム", path: "/" },
-    { label: "プライバシーポリシー", path: "/privacy" },
-    { label: "利用規約", path: "/terms" },
+    { label: "プライバシーポリシー", path: "/privacy-policy" },
+    { label: "利用規約", path: "/terms-and-conditions" },
     { label: "お問い合わせ", path: "/contact" }
   ],
   

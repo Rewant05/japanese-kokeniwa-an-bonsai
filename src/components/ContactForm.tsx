@@ -1,4 +1,7 @@
+'use client';
+
 import React, { useState } from 'react';
+import Link from 'next/link';
 import styles from './ContactForm.module.css';
 import WoodenLabelCTA from './WoodenLabelCTA';
 // siteData removed
@@ -98,7 +101,7 @@ const ContactForm: React.FC = () => {
       </div>
 
       <div className={styles.privacyNote}>
-        <p>送信することで、<a href="/privacy">プライバシーポリシー</a>に同意したものとみなされます。</p>
+        <p>送信することで、<Link href="/privacy-policy">プライバシーポリシー</Link>に同意したものとみなされます。</p>
       </div>
 
       <div className={styles.submitArea}>

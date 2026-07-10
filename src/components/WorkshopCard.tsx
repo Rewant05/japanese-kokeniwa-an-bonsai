@@ -1,9 +1,9 @@
 import React from 'react';
+import Image from 'next/image';
 import styles from './WorkshopCard.module.css';
 import { Clock, Users, Leaf } from './icons';
 import WoodenLabelCTA from './WoodenLabelCTA';
 import { getOptimizedImage } from '../config/imageAssets';
-import { navigateTo } from './AppLink';
 
 interface WorkshopCardProps {
   title: string;
@@ -26,14 +26,12 @@ const WorkshopCard: React.FC<WorkshopCardProps> = ({
     <div className={styles.card}>
       {optimizedImage && (
         <div className={styles.imageWrapper}>
-          <img
+          <Image
             src={optimizedImage.src}
-            srcSet={optimizedImage.srcSet}
             sizes={optimizedImage.sizes}
             alt={title}
             className={styles.image}
             loading="lazy"
-            decoding="async"
             width={optimizedImage.width}
             height={optimizedImage.height}
           />
@@ -73,7 +71,7 @@ const WorkshopCard: React.FC<WorkshopCardProps> = ({
         </div>
         
         <div className={styles.ctaWrapper}>
-          <WoodenLabelCTA text={cta} onClick={() => navigateTo('/contact')} />
+          <WoodenLabelCTA text={cta} href="/contact" />
         </div>
       </div>
     </div>
